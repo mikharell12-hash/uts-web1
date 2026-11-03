@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Riwayat transaksi pemesanan buku Warung Buku Pucuk Teh.">
+  <title>History Transaksi — Warung Buku Pucuk Teh</title>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-halaman="history">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="dashboard.html" class="brand">
+        <img src="assets/logo.png" alt="Logo Warung Buku Pucuk Teh">
+        <span>Warung Buku Pucuk Teh<small>TOKO BUKU OTENTIK</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="stok.html">Katalog</a></li>
+          <li><a href="checkout.html">Pemesanan</a></li>
+          <li><a href="tracking.html">Tracking</a></li>
+          <li><a href="history.html" class="aktif">Riwayat</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="btn-keluar" id="btn-keluar">Keluar</button>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="page-title">History Transaksi</h1>
+    <p class="page-sub">Seluruh transaksi, termasuk pesanan baru dari halaman pemesanan.</p>
+
+    <section class="card" aria-labelledby="judul-riwayat">
+      <h2 id="judul-riwayat">Daftar Transaksi</h2>
+      <div class="toolbar">
+        <input type="search" id="cari-riwayat" placeholder="Cari nomor DO atau nama..." aria-label="Cari transaksi">
+        <select id="filter-status" aria-label="Filter status">
+          <option value="">Semua status</option>
+          <option>Diproses</option>
+          <option>Dikirim</option>
+          <option>Selesai</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <caption id="info-riwayat">Memuat data...</caption>
+          <thead>
+            <tr>
+              <th scope="col">No. DO</th>
+              <th scope="col">Tanggal</th>
+              <th scope="col">Pemesan</th>
+              <th scope="col">Pembayaran</th>
+              <th scope="col" class="angka">Total</th>
+              <th scope="col">Status</th>
+              <th scope="col">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="isi-riwayat"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Warung Buku Pucuk Teh — Tugas UTS Pemrograman Web 1</p>
+  </footer>
+
+  <div class="modal-overlay" id="modal-pesan" role="alertdialog" aria-modal="true" aria-labelledby="pesan-judul">
+    <div class="modal" id="modal-pesan-kotak">
+      <h2 id="pesan-judul"></h2>
+      <p id="pesan-isi"></p>
+      <div class="modal-aksi"><button type="button" class="btn" data-tutup>OK</button></div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-detail" role="dialog" aria-modal="true" aria-labelledby="judul-detail">
+    <div class="modal lebar">
+      <button type="button" class="tutup" data-tutup aria-label="Tutup">&times;</button>
+      <h2 id="judul-detail">Detail Transaksi</h2>
+      <div id="isi-detail"></div>
+      <div class="modal-aksi"><button type="button" class="btn" data-tutup>Tutup</button></div>
+    </div>
+  </div>
+  <div class="toast-area" id="toast-area" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

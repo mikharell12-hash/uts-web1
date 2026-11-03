@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lacak status pengiriman pesanan buku dengan nomor Delivery Order.">
+  <title>Informasi Pengiriman — Warung Buku Pucuk Teh</title>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-halaman="tracking">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="dashboard.html" class="brand">
+        <img src="assets/logo.png" alt="Logo Warung Buku Pucuk Teh">
+        <span>Warung Buku Pucuk Teh<small>TOKO BUKU OTENTIK</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="stok.html">Katalog</a></li>
+          <li><a href="checkout.html">Pemesanan</a></li>
+          <li><a href="tracking.html" class="aktif">Tracking</a></li>
+          <li><a href="history.html">Riwayat</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="btn-keluar" id="btn-keluar">Keluar</button>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="page-title">Informasi Pengiriman</h1>
+    <p class="page-sub">Masukkan Nomor Delivery Order. Coba: <strong>DO2026001</strong>, <strong>DO2026002</strong>, atau <strong>DO2026003</strong>.</p>
+
+    <section class="card" aria-labelledby="judul-cari">
+      <h2 id="judul-cari">Cari Pengiriman</h2>
+      <form id="form-tracking" class="search-bar" novalidate>
+        <label for="nomor-do" class="sr-only" style="position:absolute;left:-9999px">Nomor Delivery Order</label>
+        <input type="text" id="nomor-do" placeholder="Nomor Delivery Order, contoh: DO2026001">
+        <button type="submit" class="btn">Cari</button>
+      </form>
+      <p class="pesan-error" id="err-nomor-do" role="alert"></p>
+    </section>
+
+    <section class="card" id="hasil-tracking" aria-live="polite" hidden>
+      <h2>Hasil Pelacakan</h2>
+      <div id="isi-hasil"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Warung Buku Pucuk Teh — Tugas UTS Pemrograman Web 1</p>
+  </footer>
+
+  <div class="modal-overlay" id="modal-pesan" role="alertdialog" aria-modal="true" aria-labelledby="pesan-judul">
+    <div class="modal" id="modal-pesan-kotak">
+      <h2 id="pesan-judul"></h2>
+      <p id="pesan-isi"></p>
+      <div class="modal-aksi"><button type="button" class="btn" data-tutup>OK</button></div>
+    </div>
+  </div>
+  <div class="toast-area" id="toast-area" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

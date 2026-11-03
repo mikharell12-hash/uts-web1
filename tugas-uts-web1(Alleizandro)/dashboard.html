@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard menu utama Warung Buku Pucuk Teh.">
+  <title>Dashboard — Warung Buku Pucuk Teh</title>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-halaman="dashboard">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="dashboard.html" class="brand">
+        <img src="assets/logo.png" alt="Logo Warung Buku Pucuk Teh">
+        <span>Warung Buku Pucuk Teh<small>TOKO BUKU OTENTIK</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <ul>
+          <li><a href="dashboard.html" class="aktif">Dashboard</a></li>
+          <li><a href="stok.html">Katalog</a></li>
+          <li><a href="checkout.html">Pemesanan</a></li>
+          <li><a href="tracking.html">Tracking</a></li>
+          <li><a href="history.html">Riwayat</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="btn-keluar" id="btn-keluar">Keluar</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="greeting" aria-live="polite">
+      <span class="ikon" id="greeting-ikon" aria-hidden="true">🍵</span>
+      <div>
+        <h1 id="greeting-teks">Selamat datang</h1>
+        <p id="greeting-waktu">Memuat waktu...</p>
+      </div>
+    </section>
+
+    <section class="stat-row" aria-label="Ringkasan toko">
+      <div class="stat"><strong id="stat-judul">0</strong>Judul buku</div>
+      <div class="stat"><strong id="stat-stok">0</strong>Total stok</div>
+      <div class="stat"><strong id="stat-keranjang">0</strong>Item di keranjang</div>
+      <div class="stat"><strong id="stat-transaksi">0</strong>Transaksi</div>
+    </section>
+
+    <section aria-labelledby="judul-menu">
+      <h2 id="judul-menu" class="page-title">Menu Utama</h2>
+      <p class="page-sub">Pilih menu untuk mulai mengelola pesanan buku.</p>
+      <div class="menu-grid">
+        <a href="stok.html" class="menu-card">
+          <span class="ikon" aria-hidden="true">📚</span>
+          <h3>Informasi Stok / Katalog</h3>
+          <p>Lihat dan tambah stok buku</p>
+        </a>
+        <a href="tracking.html" class="menu-card">
+          <span class="ikon" aria-hidden="true">🚚</span>
+          <h3>Tracking Pengiriman</h3>
+          <p>Lacak paket dengan nomor DO</p>
+        </a>
+        <a href="checkout.html" class="menu-card">
+          <span class="ikon" aria-hidden="true">🧾</span>
+          <h3>Laporan Pemesanan</h3>
+          <p>Susun pesanan dan checkout</p>
+        </a>
+        <a href="history.html" class="menu-card">
+          <span class="ikon" aria-hidden="true">🕰️</span>
+          <h3>History Transaksi</h3>
+          <p>Riwayat semua transaksi</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Warung Buku Pucuk Teh — Tugas UTS Pemrograman Web 1</p>
+  </footer>
+
+  <div class="modal-overlay" id="modal-pesan" role="alertdialog" aria-modal="true" aria-labelledby="pesan-judul">
+    <div class="modal" id="modal-pesan-kotak">
+      <h2 id="pesan-judul"></h2>
+      <p id="pesan-isi"></p>
+      <div class="modal-aksi"><button type="button" class="btn" data-tutup>OK</button></div>
+    </div>
+  </div>
+  <div class="toast-area" id="toast-area" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

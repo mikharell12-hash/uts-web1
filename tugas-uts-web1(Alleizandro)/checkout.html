@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Halaman pemesanan buku Warung Buku Pucuk Teh.">
+  <title>Pemesanan — Warung Buku Pucuk Teh</title>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-halaman="checkout">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="dashboard.html" class="brand">
+        <img src="assets/logo.png" alt="Logo Warung Buku Pucuk Teh">
+        <span>Warung Buku Pucuk Teh<small>TOKO BUKU OTENTIK</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="stok.html">Katalog</a></li>
+          <li><a href="checkout.html" class="aktif">Pemesanan</a></li>
+          <li><a href="tracking.html">Tracking</a></li>
+          <li><a href="history.html">Riwayat</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="btn-keluar" id="btn-keluar">Keluar</button>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="page-title">Pemesanan Buku</h1>
+    <p class="page-sub">Tambah, ubah jumlah, atau hapus buku pesanan, lalu isi data pemesan dan pembayaran.</p>
+
+    <div class="grid-2">
+      <div>
+        <section class="card" aria-labelledby="judul-keranjang">
+          <h2 id="judul-keranjang">Data Pesanan</h2>
+          <div class="toolbar">
+            <select id="pilih-buku" aria-label="Pilih buku"></select>
+            <input type="number" id="qty-baru" class="qty-input" min="1" value="1" aria-label="Jumlah">
+            <button type="button" class="btn btn-coklat" id="btn-tambah-pesanan">+ Tambah</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Judul</th>
+                  <th scope="col" class="angka">Harga</th>
+                  <th scope="col">Jumlah</th>
+                  <th scope="col" class="angka">Subtotal</th>
+                  <th scope="col">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="isi-keranjang"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="judul-pemesan">
+          <h2 id="judul-pemesan">Data Pemesan &amp; Pembayaran</h2>
+          <form id="form-checkout" novalidate>
+            <div class="row-2">
+              <div class="form-group">
+                <label for="c-nama">Nama Pemesan</label>
+                <input type="text" id="c-nama" placeholder="Nama lengkap">
+                <p class="pesan-error" id="err-c-nama" role="alert"></p>
+              </div>
+              <div class="form-group">
+                <label for="c-hp">No. Telepon</label>
+                <input type="tel" id="c-hp" placeholder="08xxxxxxxxxx">
+                <p class="pesan-error" id="err-c-hp" role="alert"></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="c-email">Email</label>
+              <input type="email" id="c-email" placeholder="nama@email.com">
+              <p class="pesan-error" id="err-c-email" role="alert"></p>
+            </div>
+            <div class="form-group">
+              <label for="c-alamat">Alamat Pengiriman</label>
+              <textarea id="c-alamat" rows="3" placeholder="Jalan, nomor, kota, kode pos"></textarea>
+              <p class="pesan-error" id="err-c-alamat" role="alert"></p>
+            </div>
+            <div class="row-2">
+              <div class="form-group">
+                <label for="c-ekspedisi">Ekspedisi</label>
+                <select id="c-ekspedisi"></select>
+                <p class="pesan-error" id="err-c-ekspedisi" role="alert"></p>
+              </div>
+              <div class="form-group">
+                <label for="c-bayar">Metode Pembayaran</label>
+                <select id="c-bayar"></select>
+                <p class="pesan-error" id="err-c-bayar" role="alert"></p>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-blok">Buat Pesanan</button>
+          </form>
+        </section>
+      </div>
+
+      <aside class="card ringkasan" aria-labelledby="judul-ringkasan">
+        <h2 id="judul-ringkasan">Ringkasan</h2>
+        <p><span>Jumlah item</span><span id="r-item">0</span></p>
+        <p><span>Subtotal</span><span id="r-subtotal">Rp 0</span></p>
+        <p><span>Ongkos kirim</span><span id="r-ongkir">Rp 0</span></p>
+        <p class="total"><span>Total</span><span id="r-total">Rp 0</span></p>
+        <p><span>Estimasi tiba</span><span id="r-estimasi">-</span></p>
+        <button type="button" class="btn btn-garis btn-blok" id="btn-kosongkan" style="margin-top:1rem">Kosongkan Pesanan</button>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Warung Buku Pucuk Teh — Tugas UTS Pemrograman Web 1</p>
+  </footer>
+
+  <div class="modal-overlay" id="modal-pesan" role="alertdialog" aria-modal="true" aria-labelledby="pesan-judul">
+    <div class="modal" id="modal-pesan-kotak">
+      <h2 id="pesan-judul"></h2>
+      <p id="pesan-isi"></p>
+      <div class="modal-aksi"><button type="button" class="btn" data-tutup>OK</button></div>
+    </div>
+  </div>
+  <div class="toast-area" id="toast-area" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

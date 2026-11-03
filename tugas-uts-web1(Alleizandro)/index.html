@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Halaman login Warung Buku Pucuk Teh, toko buku online bertema otentik.">
+  <title>Login — Warung Buku Pucuk Teh</title>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-body" data-halaman="login">
+
+  <main class="login-wrap">
+    <section class="login-hero" aria-label="Tentang toko">
+      <img src="assets/logo.png" alt="Logo Warung Buku Pucuk Teh">
+      <h1>Warung Buku Pucuk Teh</h1>
+      <p>Sehangat secangkir teh, sekaya halaman buku. Masuk untuk memesan buku pilihanmu.</p>
+    </section>
+
+    <section class="login-form" aria-labelledby="judul-login">
+      <h2 id="judul-login">Masuk ke Akun</h2>
+
+      <form id="form-login" novalidate>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="nama@email.com" autocomplete="username">
+          <p class="pesan-error" id="err-email" role="alert"></p>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Masukkan password" autocomplete="current-password">
+          <p class="pesan-error" id="err-password" role="alert"></p>
+        </div>
+        <button type="submit" class="btn btn-blok">Login</button>
+      </form>
+
+      <div class="link-row">
+        <button type="button" class="btn btn-garis" id="btn-lupa">Lupa Password</button>
+        <button type="button" class="btn btn-coklat" id="btn-daftar">Daftar</button>
+      </div>
+
+      <p class="hint"><strong>Akun demo:</strong> rani@tehbuku.id / teh12345</p>
+    </section>
+  </main>
+
+  <!-- Modal: Lupa Password -->
+  <div class="modal-overlay" id="modal-lupa" role="dialog" aria-modal="true" aria-labelledby="judul-lupa">
+    <div class="modal">
+      <button type="button" class="tutup" data-tutup aria-label="Tutup">&times;</button>
+      <h2 id="judul-lupa">Lupa Password</h2>
+      <p>Masukkan email terdaftar, kami kirimkan tautan untuk mengatur ulang password (simulasi).</p>
+      <form id="form-lupa" novalidate>
+        <div class="form-group">
+          <label for="lupa-email">Email terdaftar</label>
+          <input type="email" id="lupa-email" placeholder="nama@email.com">
+          <p class="pesan-error" id="err-lupa-email" role="alert"></p>
+        </div>
+        <div class="modal-aksi">
+          <button type="button" class="btn btn-garis" data-tutup>Batal</button>
+          <button type="submit" class="btn">Kirim Tautan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Daftar -->
+  <div class="modal-overlay" id="modal-daftar" role="dialog" aria-modal="true" aria-labelledby="judul-daftar">
+    <div class="modal">
+      <button type="button" class="tutup" data-tutup aria-label="Tutup">&times;</button>
+      <h2 id="judul-daftar">Daftar Akun Baru</h2>
+      <form id="form-daftar" novalidate>
+        <div class="form-group">
+          <label for="daftar-nama">Nama Lengkap</label>
+          <input type="text" id="daftar-nama" placeholder="Nama lengkap">
+          <p class="pesan-error" id="err-daftar-nama" role="alert"></p>
+        </div>
+        <div class="form-group">
+          <label for="daftar-email">Email</label>
+          <input type="email" id="daftar-email" placeholder="nama@email.com">
+          <p class="pesan-error" id="err-daftar-email" role="alert"></p>
+        </div>
+        <div class="row-2">
+          <div class="form-group">
+            <label for="daftar-pass">Password</label>
+            <input type="password" id="daftar-pass" placeholder="Minimal 6 karakter">
+            <p class="pesan-error" id="err-daftar-pass" role="alert"></p>
+          </div>
+          <div class="form-group">
+            <label for="daftar-pass2">Ulangi Password</label>
+            <input type="password" id="daftar-pass2" placeholder="Ulangi password">
+            <p class="pesan-error" id="err-daftar-pass2" role="alert"></p>
+          </div>
+        </div>
+        <div class="modal-aksi">
+          <button type="button" class="btn btn-garis" data-tutup>Batal</button>
+          <button type="submit" class="btn">Daftar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Pesan umum (alert box kustom) -->
+  <div class="modal-overlay" id="modal-pesan" role="alertdialog" aria-modal="true" aria-labelledby="pesan-judul">
+    <div class="modal" id="modal-pesan-kotak">
+      <h2 id="pesan-judul"></h2>
+      <p id="pesan-isi"></p>
+      <div class="modal-aksi"><button type="button" class="btn" data-tutup>OK</button></div>
+    </div>
+  </div>
+
+  <div class="toast-area" id="toast-area" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
